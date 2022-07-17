@@ -8,6 +8,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import NavBar from "./NavBar";
+import { v4 as uuidv4 } from "uuid";
 
 function CountryDetails(props) {
   const { countries, borderButtonHandler, borderVal } = props;
@@ -77,7 +78,7 @@ function CountryDetails(props) {
           <div className="border-container border h-fit w-full flex flex-row flex-wrap mt-4 space-x-1">
             {selectedCountry[0].borders ? (
               selectedCountry[0].borders.map((items) => (
-                <Link to={`${borderVal}`}>
+                <Link key={uuidv4()} to={`${borderVal}`}>
                   <button
                     value={items}
                     onClick={borderButtonHandler}

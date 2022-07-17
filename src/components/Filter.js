@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import downArrowLogo from "./downArrow.svg";
+import { v4 as uuidv4 } from "uuid";
+
 function Filter(props) {
   const { category, handlerFunction } = props;
   return (
@@ -15,9 +17,9 @@ function Filter(props) {
         tabindex="0"
         className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
       >
-        {category.map((items) => (
-          <li>
-            <button value={items} onClick={handlerFunction}>
+        {category.map((items, index) => (
+          <li key={uuidv4()}>
+            <button key={uuidv4()} value={items} onClick={handlerFunction}>
               {items.toUpperCase()}
             </button>
           </li>

@@ -6,6 +6,7 @@ import {
   Switch,
   useParams,
 } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 function CountriesComponent(props) {
   const { countriesList } = props;
@@ -15,9 +16,9 @@ function CountriesComponent(props) {
   return (
     <div className="text-white md:ml-5 md:mr-5 mt-10 flex flex-col md:flex-row md:flex-wrap  justify-center items-center">
       {countriesList.map((items) => (
-        <Link to={`${items.name.common}`}>
+        <Link key={uuidv4()} to={`${items.name.common}`}>
           <div
-            key={items.name.common}
+            key={uuidv4()}
             className="main-box h-[28rem] w-[20rem] md:w-[17rem] md:mr-2"
           >
             <div className="image-box">

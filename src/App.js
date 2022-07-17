@@ -4,12 +4,14 @@ import MainPage from "./components/MainPage";
 import CountryDetails from "./components/CountryDetails";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Borders from "./components/BordersPage";
+import InnerBorderPage from "./components/InnerBorderPage";
 
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const [borderVal, setborderVal] = useState("");
+  const [innerBorderVal, setInnerBorderVal] = useState("");
 
   // Note: the empty deps array [] means
   // this useEffect will run once
@@ -40,9 +42,18 @@ function App() {
     setborderVal(pressedBorder);
   };
 
+  const innerBorderButtonHandler = (e) => {
+    const pressedInnerBorder = e.target.value;
+    setInnerBorderVal(pressedInnerBorder);
+  };
+
   useEffect(() => {
     ///console.log(borderVal);
   }, [borderVal]);
+
+  useEffect(() => {
+    //console.log(innerBorderVal);
+  }, [innerBorderVal]);
 
   if (error) {
     return <div>There is Error loading: {error.message}</div>;
@@ -68,13 +79,24 @@ function App() {
             }
           ></Route>
           <Route
-            path="/:countryName/:borderName/*"
+            path="/:countryName/:borderName"
             element={
               <Borders
                 countries={items}
-                borderButtonHandler={borderButtonHandler}
+                innerBorderButtonHandler={innerBorderButtonHandler}
                 borderVal={borderVal}
+                innerBorderVal={innerBorderVal}
               ></Borders>
+            }
+          ></Route>
+          <Route
+            path="/:countryName/:borderName/:innerBorderId"
+            element={
+              <InnerBorderPage
+                countries={items}
+                innerBorderButtonHandler={innerBorderButtonHandler}
+                borderVal={innerBorderVal}
+              ></InnerBorderPage>
             }
           ></Route>
         </Routes>
