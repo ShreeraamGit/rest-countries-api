@@ -31,33 +31,39 @@ function CountryDetails(props) {
           ← Back
         </button>
       </Link>
-      <div className="container mt-10 ml-5">
-        <div className="flag-box border h-[14rem] w-full">
+      <div className="container mt-10 ml-5 md:ml-10 md:w-fit flex flex-col md:flex-row md:justify-center md:items-start">
+        <div className="flag-box border h-[14rem] w-full ml-1">
           <img
-            className="rounded-lg h-[15rem] w-[20.5rem]"
+            className="rounded-lg h-[15rem] w-[20rem] md:h-[20rem] md:w-[25rem]"
             src={selectedCountry[0].flags.png}
             alt="new"
           />
         </div>
-        <div className="details-box h-fit w-full mt-10">
-          <h1 className="font-bold text-2xl">
-            {selectedCountry[0].name.common}
-          </h1>
-          <div className="innerdetails mt-5">
-            <h3 className="mb-2">
-              Native Name : {selectedCountry[0].name.official}
-            </h3>
-            <h3 className="mb-2">
-              Population :{" "}
-              {selectedCountry[0].population
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            </h3>
-            <h3 className="mb-2">Region : {selectedCountry[0].region}</h3>
-            <h3 className="mb-2">
-              Sub-Region : {selectedCountry[0].subregion}
-            </h3>
-            <h3 className="mb-2">Capital : {selectedCountry[0].capital} </h3>
+        <div className="details-box h-fit w-full mt-10 md:mt-0 flex flex-col md:flex-col">
+          <div className="first-details-box flex flex-col md:flex-row">
+            <div className="primarydetails mt-7 md:mt-0">
+              <h1 className="font-bold text-2xl">
+                {selectedCountry[0].name.common}
+              </h1>
+              <div className="innerdetails mt-5">
+                <h3 className="mb-2">
+                  Native Name : {selectedCountry[0].name.official}
+                </h3>
+                <h3 className="mb-2">
+                  Population :{" "}
+                  {selectedCountry[0].population
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </h3>
+                <h3 className="mb-2">Region : {selectedCountry[0].region}</h3>
+                <h3 className="mb-2">
+                  Sub-Region : {selectedCountry[0].subregion}
+                </h3>
+                <h3 className="mb-2">
+                  Capital : {selectedCountry[0].capital}{" "}
+                </h3>
+              </div>
+            </div>
             <div className="secondarydetails mt-10">
               <h3 className="mb-2">
                 Top-Level Domain : {selectedCountry[0].tld}{" "}
@@ -72,27 +78,27 @@ function CountryDetails(props) {
               </h3>
             </div>
           </div>
-        </div>
-        <div className="border-countriesbox mt-10">
-          <h1 className="text-lg">Borders Countries :</h1>
-          <div className="border-container border h-fit w-full flex flex-row flex-wrap mt-4 space-x-1">
-            {selectedCountry[0].borders ? (
-              selectedCountry[0].borders.map((items) => (
-                <Link key={uuidv4()} to={`${borderVal}`}>
-                  <button
-                    value={items}
-                    onClick={borderButtonHandler}
-                    className="p-2 mb-8 px-6 bg-[#2b3945] rounded-[0.4rem]"
-                  >
-                    {items}
-                  </button>
-                </Link>
-              ))
-            ) : (
-              <div className="p-2 mb-8 px-6 bg-[#2b3945] rounded-[0.4rem]">
-                No Borders Availaible
-              </div>
-            )}
+          <div className="border-countriesbox mt-10 md:mt-5 flex w-[25rem]">
+            <h1 className="text-lg">Borders Countries :</h1>
+            <div className="border-container border h-fit w-full flex flex-row flex-wrap mt-4 space-x-1">
+              {selectedCountry[0].borders ? (
+                selectedCountry[0].borders.map((items) => (
+                  <Link key={uuidv4()} to={`${borderVal}`}>
+                    <button
+                      value={items}
+                      onClick={borderButtonHandler}
+                      className="p-2 mb-8 px-6 bg-[#2b3945] rounded-[0.4rem]"
+                    >
+                      {items}
+                    </button>
+                  </Link>
+                ))
+              ) : (
+                <div className="p-2 mb-8 px-6 bg-[#2b3945] rounded-[0.4rem]">
+                  No Borders Availaible
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

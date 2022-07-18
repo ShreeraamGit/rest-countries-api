@@ -14,12 +14,12 @@ function CountriesComponent(props) {
   //console.log(countriesList.filter((items) => items.region === "Africa"));
 
   return (
-    <div className="text-white md:ml-5 md:mr-5 mt-10 flex flex-col md:flex-row md:flex-wrap  justify-center items-center">
+    <div className="text-white md:ml-12 md:mr-5 mt-10 flex flex-col md:flex-row md:flex-wrap justify-start items-center">
       {countriesList.map((items) => (
         <Link key={uuidv4()} to={`${items.name.common}`}>
           <div
             key={uuidv4()}
-            className="main-box h-[28rem] w-[20rem] md:w-[17rem] md:mr-2"
+            className="main-box h-[27rem] w-[20rem] md:w-[18rem] md:mr-7 md:mb-10"
           >
             <div className="image-box">
               <img

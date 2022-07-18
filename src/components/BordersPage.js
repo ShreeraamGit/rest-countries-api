@@ -83,7 +83,7 @@ function Borders(props) {
           <div className="border-container border h-fit w-full flex flex-row flex-wrap mt-4 space-x-1">
             {selectedBoundaryNew.borders ? (
               selectedBoundaryNew.borders.map((items) => (
-                <Link to={`${innerBorderVal}`}>
+                <Link key={uuidv4()} to={`${innerBorderVal}`}>
                   <button
                     key={uuidv4()}
                     value={items}
