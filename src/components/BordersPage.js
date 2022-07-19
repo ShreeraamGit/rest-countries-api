@@ -9,6 +9,8 @@ import {
   Outlet,
 } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import BackButton from "./BackButton";
+
 function Borders(props) {
   const { countries, innerBorderButtonHandler, borderVal, innerBorderVal } =
     props;
@@ -17,26 +19,17 @@ function Borders(props) {
     ///console.log(borderVal);
   }, [borderVal]);
 
-  /*const selectedBoundary = countries.filter(
-    (items) => items.cca3 === borderVal
-  );*/
-
   const selectedBoundaryNew = countries.find(
     (items) => items.cca3 === borderVal
   );
-
-  ////console.log(selectedBoundaryNew.flag);
 
   return (
     <main className="bg-[#202c37] min-h-screen w-screen text-white">
       <NavBar></NavBar>
       <Link to="/" className="">
-        <button className="rounded-md mt-10 ml-5 p-2 w-[6.7rem] bg-[#2b3945]">
-          {" "}
-          ← Back
-        </button>
+        <BackButton></BackButton>
       </Link>
-      <div className="container mt-10 ml-5">
+      <div className="container mt-10 pr-7 pl-7">
         <div className="flag-box border h-[14rem] w-full">
           <img
             className="rounded-lg h-[15rem] w-[20.5rem]"
