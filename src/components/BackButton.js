@@ -10,7 +10,7 @@ import {
 
 function BackButton() {
   return (
-    <button className="rounded-md mt-10 p-2 w-[6.7rem] bg-[#2b3945]">
+    <button className="text-xl rounded-md mt-10 p-2 w-[6.7rem] bg-[#2b3945]">
       {" "}
       ← Back
     </button>

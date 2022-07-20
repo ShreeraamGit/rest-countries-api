@@ -29,7 +29,7 @@ function CountryDetails(props) {
   return (
     <main className="bg-[#202c37] min-h-screen w-screen text-white">
       <NavBar></NavBar>
-      <div className="md:pl-10 md:pr-10 pl-6 pr-7">
+      <div className="md:pl-10 md:pr-10 pl-6 pr-7 xl:pl-14 xl:pr-14">
         <Link to="/" className="">
           <BackButton></BackButton>
         </Link>

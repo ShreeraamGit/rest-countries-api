@@ -12,9 +12,9 @@ import { v4 as uuidv4 } from "uuid";
 function BorderDetailsBox(props) {
   const { borderButtonHandler, selectedCountry, borderVal } = props;
   return (
-    <div className="flex flex-col md:flex-row">
-      <h1 className="text-lg">Borders Countries :</h1>
-      <div className="border-container border h-fit w-full flex flex-row flex-wrap mt-4 space-x-1">
+    <div className="flex flex-col md:flex-row lg:text-xl">
+      <h1 className="text-lg lg:text-xl">Borders Countries :</h1>
+      <div className="border-container border h-fit w-full flex flex-row flex-wrap mt-4 gap-3">
         {selectedCountry[0].borders ? (
           selectedCountry[0].borders.map((items) => (
             <Link key={uuidv4()} to={`${borderVal}`}>
