@@ -11,7 +11,7 @@ import {
 function DetailsContentBox(props) {
   const { selectedCountry } = props;
   return (
-    <div className="flex flex-col justify-start items-start">
+    <div className="flex flex-col justify-start items-start md:flex-row space-x-9">
       <div className="primarydetails">
         <h1 className="font-bold text-2xl">{selectedCountry[0].name.common}</h1>
         <div className="primarydetails-1 mt-5">
@@ -29,7 +29,7 @@ function DetailsContentBox(props) {
           <h3 className="mb-2">Capital : {selectedCountry[0].capital} </h3>
         </div>
       </div>
-      <div className="secondarydetails mt-10">
+      <div className="secondarydetails mt-10 md:mt-12">
         <h3 className="mb-2">Top-Level Domain : {selectedCountry[0].tld} </h3>
         <h3 className="mb-2">
           Currencies : {Object.values(selectedCountry[0].currencies)[0].name}{" "}

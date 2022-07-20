@@ -11,9 +11,9 @@ import {
 function FlagBox(props) {
   const { selectedCountry } = props;
   return (
-    <div className="flag-box border h-[14rem] w-full ml-1">
+    <div className="flag-box border h-[14rem] w-full ml-1 md:mt-10">
       <img
-        className="rounded-lg h-[15rem] w-[20rem]"
+        className="rounded-lg h-[15rem] w-[20rem] md:h-[20rem] md:w-[25rem]"
         src={selectedCountry[0].flags.png}
         alt="new"
       />

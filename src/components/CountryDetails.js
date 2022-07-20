@@ -29,21 +29,23 @@ function CountryDetails(props) {
   return (
     <main className="bg-[#202c37] min-h-screen w-screen text-white">
       <NavBar></NavBar>
-      <Link to="/" className="pl-6">
-        <BackButton></BackButton>
-      </Link>
-      <div className="container mt-10 flex flex-col justify-center items-center pl-6 pr-7">
-        <FlagBox selectedCountry={selectedCountry}></FlagBox>
-        <div className="details-box h-fit w-full mt-14">
-          <DetailsContentBox
-            selectedCountry={selectedCountry}
-          ></DetailsContentBox>
-          <div className="border-countriesbox mt-10">
-            <BorderDetailsBox
+      <div className="md:pl-10 md:pr-10 pl-6 pr-7">
+        <Link to="/" className="">
+          <BackButton></BackButton>
+        </Link>
+        <div className="container mt-10 flex flex-col md:flex-row justify-center items-center md:justify-start md:items-start">
+          <FlagBox selectedCountry={selectedCountry}></FlagBox>
+          <div className="details-box h-fit w-full mt-14 md:mt-10">
+            <DetailsContentBox
               selectedCountry={selectedCountry}
-              borderButtonHandler={borderButtonHandler}
-              bordeVal={borderVal}
-            ></BorderDetailsBox>
+            ></DetailsContentBox>
+            <div className="border-countriesbox mt-10 md:mt-5">
+              <BorderDetailsBox
+                selectedCountry={selectedCountry}
+                borderButtonHandler={borderButtonHandler}
+                bordeVal={borderVal}
+              ></BorderDetailsBox>
+            </div>
           </div>
         </div>
       </div>
